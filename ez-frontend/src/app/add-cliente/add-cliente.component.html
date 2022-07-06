@@ -1,32 +1,122 @@
-<div>
-    <div class="submit-form">
-      <div *ngIf="!submitted">
-        <div class="form-group">
-          <label for="title">Responsável</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            required
-            [(ngModel)]="cliente.token"
-            name="title"
-          />
-        </div>
-        <div class="form-group">
-          <label for="description">Documento</label>
-          <input
-            class="form-control"
-            id="description"
-            required
-            [(ngModel)]="cliente.responsavel"
-            name="description"
-          />
-        </div>
-        <button (click)="saveCliente()" class="btn btn-success">Submit</button>
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+  <div class="wrapper wrapper--w790">
+      <div class="card card-5">
+          <div class="card-heading">
+              <h2 class="title">Registro de novo cliente</h2>
+          </div>
+          <div class="card-body">
+              <form method="POST">
+                  <div class="form-row">
+                      <div class="name">Responsável</div>
+                      <div class="value">
+                          <div class="input-group">
+                              <input class="input--style-5" type="text" name="responsavel" required
+                              [(ngModel)]="cliente.responsavel">
+                          </div>
+                      </div>
+                  </div>
+                 <div class="form-row">
+                      <div class="name">Token</div>
+                      <div class="value">
+                          <div class="input-group">
+                              <input class="input--style-5" type="text" name="token" required
+                              [(ngModel)]="cliente.token">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="name">Documento</div>
+                      <div class="value">
+                          <div class="input-group">
+                              <input class="input--style-5" type="email" name="email">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="name">Email</div>
+                      <div class="value">
+                          <div class="input-group">
+                              <input class="input--style-5" type="email" name="email" required
+                              [(ngModel)]="cliente.email">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-row m-b-55">
+                      <div class="name">Telefone</div>
+                      <div class="value">
+                          <div class="row row-refine">                                    
+                              <div class="col-5">
+                                  <div class="input-group-desc">
+                                      <input class="input--style-5" type="text" name="telefone1" required
+                                      [(ngModel)]="telefone.telefone">
+                                      <label class="label--desc">Tel 1</label>
+                                  </div>
+                              </div>
+                              <div class="col-5">
+                                  <div class="input-group-desc">
+                                      <input class="input--style-5" type="text" name="telefone2"required
+                                      [(ngModel)]="telefone.telefone">
+                                      <label class="label--desc">Tel 2</label>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-row m-b-55">
+                      <div class="name">Endereço</div>
+                      <div class="value">
+                          <div class="row row-refine">                                    
+                              <div class="col-9">
+                                  <div class="input-group-desc">
+                                      <input class="input--style-5" type="text" name="endereco" required
+                                      [(ngModel)]="cliente.endereco" >
+                                      <label class="label--desc">Rua</label>
+                                  </div>
+                              </div>
+                              <div class="col-3">
+                                  <div class="input-group-desc">
+                                      <input class="input--style-5" type="text" name="cep" required
+                                      [(ngModel)]="cliente.cep">
+                                      <label class="label--desc">CEP</label>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="name">Senha</div>
+                      <div class="value">
+                          <div class="input-group">
+                              <input class="input--style-5" type="email" name="email" required
+                              [(ngModel)]="cliente.senha">
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="form-row p-t-20">
+                      <label class="label label--block">Cliente Ativo</label>
+                      <div class="p-t-15">
+                          <label class="radio-container m-r-55">Sim
+                              <input type="radio" checked="checked" name="status" 
+                              [(ngModel)]="cliente.status">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="radio-container">Não
+                              <input type="radio" name="status" 
+                              [(ngModel)]="cliente.status">
+                              <span class="checkmark"></span>
+                          </label>
+                      </div>
+                  </div>
+                  <div>
+                      <button class="btn btn--radius-2 btn--red" (click)="saveCliente()" type="submit">Registrar</button>
+                  </div>
+                  <div *ngIf="submitted">
+                      <h4>Cliente was submitted successfully!</h4>
+                      <button class="btn btn-success" (click)="newCliente()">Add</button>
+                    </div>
+              </form>
+          </div>
       </div>
-      <div *ngIf="submitted">
-        <h4>Cliente was submitted successfully!</h4>
-        <button class="btn btn-success" (click)="newCliente()">Add</button>
-      </div>
-    </div>
   </div>
+</div>

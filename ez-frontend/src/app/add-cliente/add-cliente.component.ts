@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from '../models/cliente/cliente.model';
+import { Cliente, Telefone } from '../models/cliente/cliente.model';
 import { ClienteService } from '../services/cliente.service';
 
 @Component({
@@ -16,6 +16,10 @@ export class AddClienteComponent implements OnInit {
     cep: '',
     email: '',
     senha: '',
+  };
+  telefone: Telefone = {
+    id: '',
+    telefone: 0,
   };
   submitted = false;
   constructor(private clienteService: ClienteService) {}
