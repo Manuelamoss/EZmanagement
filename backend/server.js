@@ -27,17 +27,20 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 const db = require("./models");
+//db.sequelize.sync({ force: true })  --> drop existing tables and re-sync database.
 db.sequelize
-  .sync()
+  .sync({ force: true })
   .then(() => {
     console.log("Synced db.");
   })
   .catch((err) => {
     console.log("Failed to sync db: " + err.message);
   });
-
+app.use(function (req, res, next) {
+  next();
+});
 require("./routes/clientes.routers")(app);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
-});
+}); 
