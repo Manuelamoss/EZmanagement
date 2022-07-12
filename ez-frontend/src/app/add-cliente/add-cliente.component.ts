@@ -14,6 +14,8 @@ export class AddClienteComponent implements OnInit {
     responsavel: '',
     endereco: '',
     cep: '',
+    status: true,
+    descricao: '',
     email: '',
     senha: '',
   };
@@ -22,16 +24,19 @@ export class AddClienteComponent implements OnInit {
     telefone: 0,
   };
   submitted = false;
+
   constructor(private clienteService: ClienteService) {}
 
   ngOnInit(): void {}
   saveCliente(): void {
     const data = {
-      title: this.cliente.token,
-      description: this.cliente.documento,
+      token: this.cliente.token,
+      documento: this.cliente.documento,
       responsavel: this.cliente.responsavel,
       endereco: this.cliente.endereco,
       cep: this.cliente.cep,
+      status: this.cliente.status,
+      descricao: this.cliente.descricao,
       email: this.cliente.email,
       senha: this.cliente.senha,
     };
@@ -53,6 +58,8 @@ export class AddClienteComponent implements OnInit {
       responsavel: '',
       endereco: '',
       cep: '',
+      status: true,
+      descricao: '',
       email: '',
       senha: '',
     };

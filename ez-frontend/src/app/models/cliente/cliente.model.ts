@@ -5,6 +5,7 @@ export class Cliente {
   endereco?: string;
   cep?: string;
   status?: boolean;
+  descricao?: string;
   email?: string;
   senha?: string;
 }

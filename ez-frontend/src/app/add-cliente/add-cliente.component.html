@@ -28,7 +28,8 @@
                       <div class="name">Documento</div>
                       <div class="value">
                           <div class="input-group">
-                              <input class="input--style-5" type="email" name="email">
+                              <input class="input--style-5" type="text" name="documento"
+                              [(ngModel)]="cliente.documento">
                           </div>
                       </div>
                   </div>
@@ -54,7 +55,7 @@
                               </div>
                               <div class="col-5">
                                   <div class="input-group-desc">
-                                      <input class="input--style-5" type="text" name="telefone2"required
+                                      <input class="input--style-5" type="text" name="telefone2"
                                       [(ngModel)]="telefone.telefone">
                                       <label class="label--desc">Tel 2</label>
                                   </div>
@@ -97,17 +98,26 @@
                       <label class="label label--block">Cliente Ativo</label>
                       <div class="p-t-15">
                           <label class="radio-container m-r-55">Sim
-                              <input type="radio" checked="checked" name="status" 
+                              <input type="radio" checked="checked" name="statusSim" value="true"
                               [(ngModel)]="cliente.status">
                               <span class="checkmark"></span>
                           </label>
                           <label class="radio-container">Não
-                              <input type="radio" name="status" 
+                              <input type="radio" name="statusNao" value="false"
                               [(ngModel)]="cliente.status">
                               <span class="checkmark"></span>
                           </label>
                       </div>
                   </div>
+                  <div class="form-row">
+                    <div class="name">Descrição</div>
+                    <div class="value">
+                        <div class="input-group">
+                            <input class="input--style-5" type="descricao" name="descricao" required
+                            [(ngModel)]="cliente.descricao">
+                        </div>
+                    </div>
+                </div>
                   <div>
                       <button class="btn btn--radius-2 btn--red" (click)="saveCliente()" type="submit">Registrar</button>
                   </div>

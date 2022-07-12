@@ -11,10 +11,7 @@ module.exports = (sequelize) => {
     endereco: DataTypes.STRING,
     cep: {
       type: DataTypes.STRING(10),
-      is: /^\d{5}-\d{3}$/i,
     },
-    status: DataTypes.BOOLEAN,
-    descricao: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
       isEmail: true,
@@ -22,18 +19,11 @@ module.exports = (sequelize) => {
     senha: {
       type: DataTypes.STRING,
     },
+    status: DataTypes.BOOLEAN,
+    descricao: DataTypes.TEXT,
   });
 
-  const Telefone = sequelize.define("telefone", {
-    id: {
-      type: DataTypes.STRING(20),
-      primaryKey: true,
-    },
-    numero: DataTypes.INTEGER(15),
-  });
-
-  Cliente.hasMany(Telefone);
-  sequelize.sync();
+  return Cliente;
 };
 
   
