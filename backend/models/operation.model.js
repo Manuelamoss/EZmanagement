@@ -1,8 +1,8 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  const Operacao = sequelize.define(
-    "operacao",
+  const Operation = sequelize.define(
+    "operation",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -21,5 +21,5 @@ module.exports = (sequelize) => {
     { timestamps: false }
   );
 
-  return Operacao;
+  return Operation;
 };

@@ -1,14 +1,13 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  const Telefone = sequelize.define("telefone", {
-    id: {
+  const Card = sequelize.define("card", {
+    UID: {
       type: DataTypes.INTEGER,
-      autoIncrement: true,
       primaryKey: true,
     },
-    numero: DataTypes.INTEGER(15),
+    credito: DataTypes.FLOAT,
   });
 
-  return Telefone;
+  return Card;
 };

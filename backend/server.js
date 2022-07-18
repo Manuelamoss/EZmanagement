@@ -39,7 +39,7 @@ db.sequelize
 app.use(function (req, res, next) {
   next();
 });
-require("./routes/clientes.routers")(app);
+require("./routes/clients.routers")(app);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

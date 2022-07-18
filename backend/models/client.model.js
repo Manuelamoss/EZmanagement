@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  const Cliente = sequelize.define("cliente", {
+  const Client = sequelize.define("client", {
     token: {
       type: DataTypes.STRING(20),
       primaryKey: true,
@@ -23,10 +23,5 @@ module.exports = (sequelize) => {
     descricao: DataTypes.TEXT,
   });
 
-  return Cliente;
+  return Client;
 };
-
-  
-  
-
-

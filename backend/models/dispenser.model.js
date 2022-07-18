@@ -1,11 +1,11 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  const Dosadora = sequelize.define("dosadora", {
+  const Dispenser = sequelize.define("dispenser", {
     serial: {
       type: DataTypes.INTEGER,
       primaryKey: true,
     },
   });
-  return Dosadora;
+  return Dispenser;
 };

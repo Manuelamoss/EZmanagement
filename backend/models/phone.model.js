@@ -1,14 +1,14 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  const Servico = sequelize.define("servico", {
+  const Phone = sequelize.define("phone", {
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true,
     },
-    nomeServico: DataTypes.STRING,
-    numeroServico: DataTypes.INTEGER,
+    numero: DataTypes.INTEGER(15),
   });
 
-  return Servico;
+  return Phone;
 };
