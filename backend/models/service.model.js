@@ -6,8 +6,8 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
     },
-    nomeServico: DataTypes.STRING,
-    numeroServico: DataTypes.INTEGER,
+    serviceName: DataTypes.STRING,
+    serviceNumber: DataTypes.INTEGER,
   });
 
   return Service;

@@ -29,7 +29,7 @@ app.use(express.static("public"));
 const db = require("./models");
 //db.sequelize.sync({ force: true })  --> drop existing tables and re-sync database.
 db.sequelize
-  .sync({ force: true })
+  .sync()
   .then(() => {
     console.log("Synced db.");
   })

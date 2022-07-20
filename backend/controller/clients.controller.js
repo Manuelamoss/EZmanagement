@@ -13,12 +13,14 @@ exports.create = (req, res) => {
   //Create a Cliente
   const client = {
     token: req.body.token,
-    documento: req.body.documento,
-    responsavel: req.body.responsavel,
-    endereco: req.body.endereco,
-    cep: req.body.cep,
+    document: req.body.document,
+    responsible: req.body.responsible,
+    address: req.body.address,
+    zipcode: req.body.zipcode,
     email: req.body.email,
-    senha: req.body.senha,
+    password: req.body.password,
+    status: req.body.status,
+    description: req.body.description,
   };
   // Save Cliente in the database
   Client.create(client)
@@ -48,20 +50,20 @@ exports.findAll = (req, res) => {
 };
 // Find a single Cliente with an id
 exports.findOne = (req, res) => {
-  const id = req.params.token;
-  Client.findOne(id)
+  const token = req.params.token;
+  Client.findByPk(token)
     .then((data) => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Client with id=${id}.`,
+          message: `Cannot find Client with id=${token}.`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving Client with id=" + id,
+        message: "Error retrieving Client with id=" + token,
       });
     });
 };

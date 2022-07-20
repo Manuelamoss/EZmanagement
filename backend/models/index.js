@@ -32,6 +32,8 @@ db.dispensers.belongsTo(db.clients, { foreignKey: "token_client" });
 db.cards.hasMany(db.operations, { foreignKey: "uid_card" });
 db.operations.belongsTo(db.cards, { foreignKey: "uid_card" });
 
-db.dispensers.hasMany(db.operations, { foreignKey: "serial_dispenser" });
-db.operations.belongsTo(db.dispensers, { foreignKey: "serial_dispenser" });
+db.dispensers.hasMany(db.operations, { foreignKey: "serialNumber_dispenser" });
+db.operations.belongsTo(db.dispensers, {
+  foreignKey: "serialNumber_dispenser",
+});
 module.exports = db;

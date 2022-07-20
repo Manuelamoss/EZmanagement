@@ -10,14 +10,14 @@ import { ClienteService } from '../services/cliente.service';
 export class AddClienteComponent implements OnInit {
   cliente: Cliente = {
     token: '',
-    documento: '',
-    responsavel: '',
-    endereco: '',
-    cep: '',
-    status: true,
-    descricao: '',
+    document: '',
+    responsible: '',
+    address: '',
+    zipcode: '',
     email: '',
-    senha: '',
+    password: '',
+    status: true,
+    description: '',
   };
   telefone: Telefone = {
     id: '',
@@ -31,14 +31,14 @@ export class AddClienteComponent implements OnInit {
   saveCliente(): void {
     const data = {
       token: this.cliente.token,
-      documento: this.cliente.documento,
-      responsavel: this.cliente.responsavel,
-      endereco: this.cliente.endereco,
-      cep: this.cliente.cep,
-      status: this.cliente.status,
-      descricao: this.cliente.descricao,
+      document: this.cliente.document,
+      responsible: this.cliente.responsible,
+      address: this.cliente.address,
+      zipcode: this.cliente.zipcode,
       email: this.cliente.email,
-      senha: this.cliente.senha,
+      password: this.cliente.password,
+      status: this.cliente.status,
+      description: this.cliente.description,
     };
     this.clienteService.create(data).subscribe(
       (response) => {
@@ -54,14 +54,14 @@ export class AddClienteComponent implements OnInit {
     this.submitted = false;
     this.cliente = {
       token: '',
-      documento: '',
-      responsavel: '',
-      endereco: '',
-      cep: '',
+      document: '',
+      responsible: '',
+      address: '',
+      zipcode: '',
       status: true,
-      descricao: '',
+      description: '',
       email: '',
-      senha: '',
+      password: '',
     };
   }
 }

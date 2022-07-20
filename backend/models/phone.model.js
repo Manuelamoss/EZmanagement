@@ -7,7 +7,7 @@ module.exports = (sequelize) => {
       autoIncrement: true,
       primaryKey: true,
     },
-    numero: DataTypes.INTEGER(15),
+    phoneNumber: DataTypes.INTEGER(15),
   });
 
   return Phone;

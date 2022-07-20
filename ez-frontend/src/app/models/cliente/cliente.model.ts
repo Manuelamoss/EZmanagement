@@ -1,13 +1,13 @@
 export class Cliente {
   token?: any;
-  documento?: string;
-  responsavel?: string;
-  endereco?: string;
-  cep?: string;
+  document?: string;
+  responsible?: string;
+  address?: string;
+  zipcode?: string;
   status?: boolean;
-  descricao?: string;
+  description?: string;
   email?: string;
-  senha?: string;
+  password?: string;
 }
 export class Telefone {
   id?: any;

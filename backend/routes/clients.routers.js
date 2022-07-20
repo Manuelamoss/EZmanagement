@@ -5,8 +5,8 @@ module.exports = (app) => {
   // Create a new Cliente
   router.post("/", client.create);
   // Retrieve all Clientes
-  router.get("/clientes", client.findAll);
+  router.get("/clients", client.findAll);
   // Retrieve a single Cliente with id
-  router.get("/:id", client.findOne);
+  router.get("/:token", client.findOne);
   app.use("/api", router);
 };

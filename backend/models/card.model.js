@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
     },
-    credito: DataTypes.FLOAT,
+    balance: DataTypes.FLOAT,
   });
 
   return Card;
