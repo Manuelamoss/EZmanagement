@@ -1,11 +1,14 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  const Dosadora = sequelize.define("dosadora", {
-    serial: {
+  const Service = sequelize.define("service", {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
     },
+    serviceName: DataTypes.STRING,
+    serviceNumber: DataTypes.INTEGER,
   });
-  return Dosadora;
+
+  return Service;
 };

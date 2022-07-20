@@ -29,7 +29,7 @@ app.use(express.static("public"));
 const db = require("./models");
 //db.sequelize.sync({ force: true })  --> drop existing tables and re-sync database.
 db.sequelize
-  .sync({ force: true })
+  .sync()
   .then(() => {
     console.log("Synced db.");
   })
@@ -39,7 +39,7 @@ db.sequelize
 app.use(function (req, res, next) {
   next();
 });
-require("./routes/clientes.routers")(app);
+require("./routes/clients.routers")(app);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

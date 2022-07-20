@@ -1,5 +1,5 @@
 const db = require("../models");
-const Cliente = db.clientes;
+const Client = db.clients;
 const Op = db.Sequelize.Op;
 // Create and Save a new Cliente
 exports.create = (req, res) => {
@@ -11,24 +11,26 @@ exports.create = (req, res) => {
     return;
   }
   //Create a Cliente
-  const tutorial = {
+  const client = {
     token: req.body.token,
-    documento: req.body.documento,
-    responsavel: req.body.responsavel,
-    endereco: req.body.endereco,
-    cep: req.body.cep,
+    document: req.body.document,
+    responsible: req.body.responsible,
+    address: req.body.address,
+    zipcode: req.body.zipcode,
     email: req.body.email,
-    senha: req.body.senha,
+    password: req.body.password,
+    status: req.body.status,
+    description: req.body.description,
   };
   // Save Cliente in the database
-  Cliente.create(tutorial)
+  Client.create(client)
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Cliente.",
+          err.message || "Some error occurred while creating the Client.",
       });
     });
 };
@@ -36,33 +38,32 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   const token = req.query.token;
   var condition = token ? { token: { [Op.like]: `%${token}%` } } : null;
-  Cliente.findAll({ where: condition })
+  Client.findAll({ where: condition })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving tutorials.",
+        message: err.message || "Some error occurred while retrieving clients.",
       });
     });
 };
 // Find a single Cliente with an id
 exports.findOne = (req, res) => {
-  const id = req.params.token;
-  Cliente.findOne(id)
+  const token = req.params.token;
+  Client.findByPk(token)
     .then((data) => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Cliente with id=${id}.`,
+          message: `Cannot find Client with id=${token}.`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving Cliente with id=" + id,
+        message: "Error retrieving Client with id=" + token,
       });
     });
 };
